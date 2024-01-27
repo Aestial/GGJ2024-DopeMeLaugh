@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvyjsa2wncv23"]
 
-[ext_resource type="FontFile" uid="uid://mr21v8c6cqj" path="res://theme/Chalkboard-Regular.ttf" id="1_vyprf"]
+[ext_resource type="FontFile" uid="uid://mr21v8c6cqj" path="res://fonts/Chalkboard-Regular.ttf" id="1_vyprf"]
 
 [resource]
 default_font = ExtResource("1_vyprf")

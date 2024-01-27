@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c0rx5pkmn4v4y"]
+
+[ext_resource type="StyleBox" uid="uid://c62nggori36s6" path="res://themes/draw_style_box_flat.tres" id="1_jc805"]
+[ext_resource type="FontFile" uid="uid://bnp3bs6ty31sf" path="res://fonts/Bad Handwriting 7.2.ttf" id="2_dnl0c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8diuu"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.270588, 0.270588, 0.270588, 1)
+border_blend = true
+corner_radius_top_left = 93
+corner_radius_top_right = 42
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 64
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60mi0"]
+bg_color = Color(0.305882, 0.305882, 0.305882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.192157, 0.192157, 0.192157, 1)
+border_blend = true
+corner_radius_top_left = 93
+corner_radius_top_right = 42
+corner_radius_bottom_right = 65
+corner_radius_bottom_left = 64
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sp6j"]
+
+[resource]
+default_font = ExtResource("2_dnl0c")
+default_font_size = 60
+Button/colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
+Button/colors/font_disabled_color = Color(0.164706, 0.164706, 0.164706, 0.603922)
+Button/colors/font_focus_color = Color(0.121569, 0.121569, 0.121569, 1)
+Button/styles/disabled = ExtResource("1_jc805")
+Button/styles/focus = ExtResource("1_jc805")
+Button/styles/hover = SubResource("StyleBoxFlat_8diuu")
+Button/styles/normal = ExtResource("1_jc805")
+Button/styles/pressed = SubResource("StyleBoxFlat_60mi0")
+HBoxContainer/constants/separation = 4
+Label/colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
+Label/colors/font_shadow_color = Color(0.388235, 0.356863, 0.294118, 0.752941)
+Label/constants/line_spacing = 3
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/font_sizes/font_size = 80
+Label/styles/normal = SubResource("StyleBoxEmpty_0sp6j")

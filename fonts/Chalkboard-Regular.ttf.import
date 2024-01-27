@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bnp3bs6ty31sf"
-path="res://.godot/imported/Bad Handwriting 7.2.ttf-d344fed4e5c193670dd352dea54a5f1e.fontdata"
+uid="uid://mr21v8c6cqj"
+path="res://.godot/imported/Chalkboard-Regular.ttf-4768d366aee4cf092fdc56c2891d2739.fontdata"
 
 [deps]
 
-source_file="res://theme/Bad Handwriting 7.2.ttf"
-dest_files=["res://.godot/imported/Bad Handwriting 7.2.ttf-d344fed4e5c193670dd352dea54a5f1e.fontdata"]
+source_file="res://fonts/Chalkboard-Regular.ttf"
+dest_files=["res://.godot/imported/Chalkboard-Regular.ttf-4768d366aee4cf092fdc56c2891d2739.fontdata"]
 
 [params]
 

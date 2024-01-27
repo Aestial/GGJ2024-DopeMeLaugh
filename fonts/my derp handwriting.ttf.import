@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://0yw3e224mix0"
-path="res://.godot/imported/my derp handwriting.ttf-76c68bc3d3c6a10fc2a413f439a07daf.fontdata"
+path="res://.godot/imported/my derp handwriting.ttf-727ac750fdfda94be4360a95da38c34c.fontdata"
 
 [deps]
 
-source_file="res://theme/my derp handwriting.ttf"
-dest_files=["res://.godot/imported/my derp handwriting.ttf-76c68bc3d3c6a10fc2a413f439a07daf.fontdata"]
+source_file="res://fonts/my derp handwriting.ttf"
+dest_files=["res://.godot/imported/my derp handwriting.ttf-727ac750fdfda94be4360a95da38c34c.fontdata"]
 
 [params]
 
