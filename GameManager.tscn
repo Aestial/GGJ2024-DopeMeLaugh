@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=6 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
+[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_ofllb"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8cdky"]
 device = -1
@@ -12,10 +13,12 @@ events = [SubResource("InputEventKey_8cdky")]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
+min_spawn_time = 5
+max_spawn_time = 11
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Control" type="Control" parent="."]
+[node name="StartMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wxehv")
 
-[node name="TitleLabel" type="Label" parent="Control"]
+[node name="TitleLabel" type="Label" parent="StartMenu"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -40,7 +43,7 @@ text = "Serve me laugh!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="Control"]
+[node name="StartButton" type="Button" parent="StartMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,5 +59,27 @@ grow_vertical = 2
 shortcut = SubResource("Shortcut_o8cbr")
 text = "Start!"
 
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ofllb")
+
+[node name="TitleLabel" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_bottom = 144.0
+grow_horizontal = 0
+theme = ExtResource("3_ofllb")
+text = "Score: XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
