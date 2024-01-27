@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://war8jbxuvlta"]
+
+[ext_resource type="Script" path="res://Customer.gd" id="1_af7xb"]
+[ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://theme/UITheme.tres" id="2_gdy6r"]
+[ext_resource type="Texture2D" uid="uid://bdkxlroeccwn4" path="res://bote.png" id="2_kb40j"]
+[ext_resource type="Script" path="res://Slot.gd" id="3_5s32y"]
+[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://theme/ScriptTheme.tres" id="3_frxcx"]
+
+[node name="Customer" type="Node"]
+script = ExtResource("1_af7xb")
+waitTime = 10.0
+
+[node name="WaitTimer" type="Timer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+theme = ExtResource("2_gdy6r")
+script = ExtResource("3_5s32y")
+
+[node name="Label" type="Label" parent="Control/Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 69
+text = "N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 200.0
+offset_right = 410.0
+offset_bottom = 500.0
+theme = ExtResource("3_frxcx")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5 T
+6 P
+10 N"
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 250.0
+offset_right = 920.0
+offset_bottom = 550.0
+texture = ExtResource("2_kb40j")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
