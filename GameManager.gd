@@ -1,8 +1,8 @@
 extends Node
 
 @export var numSlots = 4
-@export var minSpawnTime = 7
-@export var maxSpawnTime = 12
+@export var minSpawnTime = 3	
+@export var maxSpawnTime = 10
 
 var customerScene = load("res://Customer.tscn")
 
@@ -18,19 +18,38 @@ var availableSlots = 0
 func _ready():
 	randomize()
 	createSlots()
-	printSlots()
 	availableSlots = slots.size()
-	_set_timer()
 	
+func createSlots():
+	for i in range(numSlots):
+		var newSlot = Slot.new()
+		newSlot.index = i + 1
+		slots.append(newSlot)
+
+func _on_start_button_pressed():
+	$Control.visible = false
+	_set_timer()
+
+func _on_timer_timeout():
+	if (availableSlots > 0):
+		var slot = getAvailableSlot()
+		createCustomer(slot)
+		_set_timer()
+		
+func _set_timer():
+	var spawnTime = randf_range(minSpawnTime, maxSpawnTime)
+	print("Spawn time: " + str(spawnTime))
+	var timer = get_node("Timer")
+	timer.start(spawnTime)
+				
 func createCustomer(slot):
 	var newCustomer = customerScene.instantiate()
-	add_child(newCustomer)
 	newCustomer._set_slot(slot)
-	newCustomer.destroyed.connect(_on_slot_cleared)
+	newCustomer.destroyed.connect(_clear_slot)
+	add_child(newCustomer)
 	slots[slot].is_used = true
-		
-func _on_slot_cleared(slot):
-	print("Slot cleared" + str(slot))
+
+func _clear_slot(slot):
 	slots[slot].is_used = false
 	
 func getAvailableSlot():
@@ -39,28 +58,3 @@ func getAvailableSlot():
 			return i
 	availableSlots = 0
 	return -1
-
-func createSlots():
-	for i in range(numSlots):
-		var newSlot = Slot.new()
-		newSlot.index = i + 1
-		slots.append(newSlot)
-
-func printSlots():
-	for i in range(slots.size()):
-		print(slots[i].index)
-
-
-func _on_timer_timeout():
-	if (availableSlots > 0):
-		var slot = getAvailableSlot()
-		print("Available slot: " + str(slot))
-		createCustomer(slot)
-		_set_timer()
-		
-func _set_timer():
-	var spawnTime = randf_range(minSpawnTime, maxSpawnTime)
-	print("Wait time: " + str(spawnTime))
-	var timer = get_node("Timer")
-	timer.start(spawnTime)
-	

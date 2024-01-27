@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=5 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
-[ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://theme/MainTheme.tres" id="2_wxehv"]
+[ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8cdky"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_o8cbr"]
+events = [SubResource("InputEventKey_8cdky")]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
@@ -17,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wxehv")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="TitleLabel" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -33,7 +40,7 @@ text = "Serve me laugh!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Control"]
+[node name="StartButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,6 +53,8 @@ offset_right = 150.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut = SubResource("Shortcut_o8cbr")
 text = "Start!"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
