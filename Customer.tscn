@@ -1,15 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://war8jbxuvlta"]
+[gd_scene load_steps=14 format=3 uid="uid://war8jbxuvlta"]
 
 [ext_resource type="Script" path="res://Customer.gd" id="1_af7xb"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="2_gdy6r"]
-[ext_resource type="Texture2D" uid="uid://bdkxlroeccwn4" path="res://sprites/bote.png" id="2_kb40j"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_frxcx"]
+[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/personaje1.png" id="4_8ukc0"]
+[ext_resource type="Texture2D" uid="uid://dxu2p76nb5bj4" path="res://sprites/container.png" id="5_juh31"]
+[ext_resource type="Script" path="res://Container.gd" id="7_5rrqn"]
+[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="7_xulmn"]
+[ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/container_open.png" id="8_mtw4n"]
+[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/Pill2_color.png" id="9_3ouwj"]
+[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="10_gdxh0"]
+[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="11_8erp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1gpv"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 10
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_628sq"]
+load_path = "res://.godot/imported/container_open.png-d26ee278c21ec127bad776b8ce339cba.ctex"
 
 [node name="Customer" type="Node"]
 script = ExtResource("1_af7xb")
-minWaitTime = 5.0
+max_pill_count = 7
+min_wait_time = 5.0
+max_wait_time = 9.0
+min_slot_width = 70
+max_slot_width = 260
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Character" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(320, 280)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_8ukc0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -21,24 +48,26 @@ grow_vertical = 2
 
 [node name="Slot" type="Panel" parent="Control"]
 layout_mode = 0
-offset_right = 80.0
+offset_right = 250.0
 offset_bottom = 80.0
 theme = ExtResource("2_gdy6r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1gpv")
 
-[node name="Label" type="Label" parent="Control/Slot"]
+[node name="ARContainer" type="AspectRatioContainer" parent="Control/Slot"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 80.0
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Slot/ARContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 69
 text = "N"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Control"]
-visible = false
+[node name="Recipe" type="Panel" parent="Control"]
 layout_mode = 0
 offset_left = 150.0
 offset_top = 200.0
@@ -46,7 +75,7 @@ offset_right = 410.0
 offset_bottom = 500.0
 theme = ExtResource("3_frxcx")
 
-[node name="Label" type="Label" parent="Control/Panel"]
+[node name="Label" type="Label" parent="Control/Recipe"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,18 +86,41 @@ offset_right = -18.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "5 T
-6 P
-10 N"
+text = "5 S
+6 D
+10 F"
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="Container" type="Sprite2D" parent="."]
+position = Vector2(777, 337)
+texture = SubResource("CompressedTexture2D_628sq")
+script = ExtResource("7_5rrqn")
+closed_container_sprite = ExtResource("5_juh31")
+open_container_sprite = ExtResource("8_mtw4n")
+pill_textures = Array[Texture]([ExtResource("9_3ouwj"), ExtResource("10_gdxh0"), ExtResource("11_8erp3"), ExtResource("7_xulmn")])
+
+[node name="PillStart" type="Sprite2D" parent="Container"]
 visible = false
-layout_mode = 0
-offset_left = 700.0
-offset_top = 250.0
-offset_right = 920.0
-offset_bottom = 550.0
-texture = ExtResource("2_kb40j")
+show_behind_parent = true
+position = Vector2(-90, 160)
+texture = ExtResource("9_3ouwj")
+
+[node name="PillRowEnd" type="Sprite2D" parent="Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(110, 160)
+texture = ExtResource("10_gdxh0")
+
+[node name="PillColumnStart" type="Sprite2D" parent="Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(-90, -40)
+texture = ExtResource("11_8erp3")
+
+[node name="PillEnd" type="Sprite2D" parent="Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(110, -40)
+texture = ExtResource("7_xulmn")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_wait_timer_timeout"]
