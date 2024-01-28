@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=22 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="3_57rew"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_ofllb"]
 [ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/characters/character1.png" id="3_uq4oc"]
+[ext_resource type="Texture2D" uid="uid://cs6quvlmgoio" path="res://sprites/background.png" id="3_yfber"]
 [ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/pills/pill2.png" id="4_6doed"]
 [ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/pills/pill3.png" id="5_8ldn6"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="6_edkup"]
@@ -48,30 +49,6 @@ max_spawn_time = 14
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cdsa3")
 autoplay = true
-
-[node name="ScoreScreen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_ofllb")
-
-[node name="TitleLabel" type="Label" parent="ScoreScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.773
-anchor_right = 0.998
-anchor_bottom = 0.185
-offset_left = -0.496094
-offset_right = 0.303955
-offset_bottom = 0.119995
-grow_horizontal = 0
-theme = ExtResource("3_ofllb")
-text = "Score: XXXX"
-vertical_alignment = 1
-justification_flags = 131
 
 [node name="StartScreen" type="Control" parent="."]
 layout_mode = 3
@@ -369,6 +346,37 @@ grow_horizontal = 2
 grow_vertical = 2
 shortcut = SubResource("Shortcut_365m6")
 text = "Credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.270588)
+z_index = -1
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_yfber")
+centered = false
+
+[node name="ScoreScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ofllb")
+
+[node name="TitleLabel" type="Label" parent="ScoreScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.791667
+anchor_right = 1.0
+anchor_bottom = 0.104938
+grow_horizontal = 0
+theme = ExtResource("3_ofllb")
+text = "Score: XXXX"
+vertical_alignment = 1
+justification_flags = 131
 metadata/_edit_use_anchors_ = true
 
 [node name="CreditsScreen" type="Control" parent="."]

@@ -35,6 +35,7 @@ func _ready():
 	_print_score()
 	_on_back_button_pressed()
 	available_slots = slots.size()
+	$Node2D.visible = false
 	score_screen.visible = false
 	timer = get_node("Timer")
 	
@@ -43,6 +44,7 @@ func _on_start_button_pressed():
 	audio.play()
 	score_screen.visible = true
 	start_screen.visible = false
+	$Node2D.visible = true
 	_set_timer(3)
 	
 func _on_credits_button_pressed():

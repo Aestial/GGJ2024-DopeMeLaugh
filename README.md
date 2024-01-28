@@ -1,2 +1,2 @@
-# GGJ2024-Doritos
-Doritos game for GGJ 2024
+# GGJ2024-DopeMeLaugh
+Doritos game for GGJ 2024 made with Godot Engine
