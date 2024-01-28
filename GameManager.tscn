@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=21 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="4_6doed"]
 [ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="5_8ldn6"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="6_edkup"]
+[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/Character0.png" id="6_uldwy"]
 [ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/personaje3.png" id="8_4fpjr"]
 [ext_resource type="AudioStream" uid="uid://bf7xmo8tb3etp" path="res://sounds/68212__zebraphone__loop5.mp3" id="10_7nnyv"]
 [ext_resource type="AudioStream" uid="uid://cncooenk8tgic" path="res://sounds/41021__hello_flowers__if-you-see-kat120bpm.wav" id="10_cdsa3"]
@@ -88,16 +89,33 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Character" type="TextureRect" parent="StartMenu/Collage"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -572.0
-offset_top = -165.0
-offset_right = -60.0
-offset_bottom = 347.001
+offset_left = -116.0
+offset_top = -507.0
+offset_right = 396.0
+offset_bottom = 5.00098
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.666, 0.666)
+texture = ExtResource("6_uldwy")
+
+[node name="Character1" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -570.0
+offset_top = -144.0
+offset_right = -58.0
+offset_bottom = 368.001
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
@@ -110,10 +128,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -390.0
-offset_top = -173.0
-offset_right = 122.0
-offset_bottom = 339.001
+offset_left = -388.0
+offset_top = -152.0
+offset_right = 124.0
+offset_bottom = 360.001
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
@@ -126,10 +144,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -772.0
-offset_top = -181.0
-offset_right = -260.0
-offset_bottom = 331.001
+offset_left = -770.0
+offset_top = -160.0
+offset_right = -258.0
+offset_bottom = 352.001
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
@@ -255,14 +273,14 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -279.0
-offset_bottom = -129.0
+offset_top = -298.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/normal_font_size = 140
+theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
-text = "[center][rainbow freq=1.5 sat=0.4 val=0.5][wave amp=100.0 freq=1.62fff5 connected=1]Serve me laugh![/wave][/rainbow][/center]"
+text = "[center][rainbow freq=1.5 sat=0.4 val=0.5][wave amp=100.0 freq=1.62fff5 connected=1]Dope me laugh![/wave][/rainbow][/center]"
 
 [node name="StartButton" type="Button" parent="StartMenu"]
 layout_mode = 1

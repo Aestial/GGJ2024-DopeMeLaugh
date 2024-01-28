@@ -72,11 +72,10 @@ func _create_slots():
 		newSlot.index = i + 1
 		slots.append(newSlot)
 
-func _solved_slot(slot, distance):
+func _solved_slot(slot, slot_score):
 	is_busy = false
 	slots[slot].is_active = false
 	slots[slot].is_used = false
-	var slot_score = 10 - distance
 	score += slot_score
 	_print_score()
 

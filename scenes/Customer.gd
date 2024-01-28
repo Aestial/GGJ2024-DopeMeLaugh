@@ -63,9 +63,14 @@ func _input(event):
 			if code == KEY_ENTER:
 				var distance = _get_recipe_distance()
 				print("Recipe distance: " + str(distance))
+				var score = 10 - distance
 				$Container.close()
-				emit_signal("solved", slot, distance)
-				await get_tree().create_timer(0.2).timeout
+				$Control/Score.set_score(score)
+				$Control/Slot.visible = false
+				emit_signal("solved", slot, score)
+				await get_tree().create_timer(0.5).timeout
+				_show_details(false)
+				await get_tree().create_timer(1.0).timeout
 				queue_free()
 			for key in recipe.keys():
 				if event.keycode == OS.find_keycode_from_string(key):
