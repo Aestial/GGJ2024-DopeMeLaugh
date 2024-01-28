@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
-[ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/personaje2.png" id="3_2a3vo"]
-[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/Pill2_color.png" id="3_57rew"]
+[ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/characters/character2.png" id="3_2a3vo"]
+[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="3_57rew"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_ofllb"]
-[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/personaje1.png" id="3_uq4oc"]
-[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="4_6doed"]
-[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="5_8ldn6"]
-[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="6_edkup"]
-[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/Character0.png" id="6_uldwy"]
-[ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/personaje3.png" id="8_4fpjr"]
+[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/characters/character1.png" id="3_uq4oc"]
+[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/pills/pill2.png" id="4_6doed"]
+[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/pills/pill3.png" id="5_8ldn6"]
+[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="6_edkup"]
+[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/characters/character0.png" id="6_uldwy"]
+[ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/characters/character3.png" id="8_4fpjr"]
 [ext_resource type="AudioStream" uid="uid://bf7xmo8tb3etp" path="res://sounds/68212__zebraphone__loop5.mp3" id="10_7nnyv"]
 [ext_resource type="AudioStream" uid="uid://cncooenk8tgic" path="res://sounds/41021__hello_flowers__if-you-see-kat120bpm.wav" id="10_cdsa3"]
-[ext_resource type="Texture2D" uid="uid://lv87x46afso7" path="res://Logo.png" id="13_vd0eb"]
+[ext_resource type="Texture2D" uid="uid://lv87x46afso7" path="res://sprites/tr_logo.png" id="13_vd0eb"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_82lp1"]
 device = -1
@@ -49,7 +49,7 @@ max_spawn_time = 14
 stream = ExtResource("10_cdsa3")
 autoplay = true
 
-[node name="Score" type="Control" parent="."]
+[node name="ScoreScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,20 +58,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_ofllb")
 
-[node name="TitleLabel" type="Label" parent="Score"]
+[node name="TitleLabel" type="Label" parent="ScoreScreen"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -220.0
-offset_bottom = 144.0
+anchors_preset = -1
+anchor_left = 0.773
+anchor_right = 0.998
+anchor_bottom = 0.185
+offset_left = -0.496094
+offset_right = 0.303955
+offset_bottom = 0.119995
 grow_horizontal = 0
 theme = ExtResource("3_ofllb")
 text = "Score: XXXX"
-horizontal_alignment = 1
 vertical_alignment = 1
+justification_flags = 131
 
-[node name="StartMenu" type="Control" parent="."]
+[node name="StartScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,242 +81,297 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wxehv")
+metadata/_edit_use_anchors_ = true
 
-[node name="Collage" type="Control" parent="StartMenu"]
+[node name="Collage" type="Control" parent="StartScreen"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = -0.000868056
+anchor_right = 0.999132
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Character" type="TextureRect" parent="StartMenu/Collage"]
+[node name="Character" type="TextureRect" parent="StartScreen/Collage"]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -116.0
-offset_top = -507.0
-offset_right = 396.0
-offset_bottom = 5.00098
+anchors_preset = -1
+anchor_left = 0.37934
+anchor_top = 0.24537
+anchor_right = 0.646007
+anchor_bottom = 0.719445
+offset_right = 204.8
+offset_bottom = 204.8
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.666, 0.666)
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_uldwy")
+metadata/_edit_use_anchors_ = true
 
-[node name="Character1" type="TextureRect" parent="StartMenu/Collage"]
+[node name="Character1" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -570.0
-offset_top = -144.0
-offset_right = -58.0
-offset_bottom = 368.001
+anchors_preset = -1
+anchor_left = 0.00520833
+anchor_top = 0.777778
+anchor_right = 0.338542
+anchor_bottom = 1.37037
+offset_right = 128.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_uq4oc")
+metadata/_edit_use_anchors_ = true
 
-[node name="Character2" type="TextureRect" parent="StartMenu/Collage"]
+[node name="Character2" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -388.0
-offset_top = -152.0
-offset_right = 124.0
-offset_bottom = 360.001
+anchors_preset = -1
+anchor_left = 0.663194
+anchor_top = 0.765432
+anchor_right = 0.996528
+anchor_bottom = 1.35803
+offset_right = 128.0
+offset_bottom = 128.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_2a3vo")
+metadata/_edit_use_anchors_ = true
 
-[node name="Character3" type="TextureRect" parent="StartMenu/Collage"]
+[node name="Character3" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -770.0
-offset_top = -160.0
-offset_right = -258.0
-offset_bottom = 352.001
+anchors_preset = -1
+anchor_left = 0.331597
+anchor_top = 0.753086
+anchor_right = 0.664931
+anchor_bottom = 1.34568
+offset_top = -3.05176e-05
+offset_right = 128.0
+offset_bottom = 128.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_4fpjr")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 228.0
-offset_top = 273.0
-offset_right = 328.0
-offset_bottom = 373.0
+anchor_left = 0.192472
+anchor_top = 0.432379
+anchor_right = 0.192472
+anchor_bottom = 0.564534
+offset_left = 6.27261
+offset_top = -7.18185
+offset_right = 106.273
+offset_bottom = 7.18179
 rotation = 1.70575
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("3_57rew")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect2" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 733.0
-offset_top = 403.0
-offset_right = 833.0
-offset_bottom = 503.0
+anchor_left = 0.636285
+anchor_top = 0.621914
+anchor_right = 0.723495
+anchor_bottom = 0.775512
+offset_top = 3.05176e-05
+offset_right = -0.465942
+offset_bottom = 0.468201
 rotation = -0.00467108
 texture = ExtResource("3_57rew")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect3" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 186.0
-offset_top = 432.0
-offset_right = 286.0
-offset_bottom = 532.0
+anchor_left = 0.144554
+anchor_top = 0.723506
+anchor_right = 0.265168
+anchor_bottom = 0.764148
+offset_left = 19.4738
+offset_top = -36.8322
+offset_right = -19.4738
+offset_bottom = 36.8321
 rotation = -0.598083
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_6doed")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect4" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 929.0
-offset_top = 385.0
-offset_right = 1029.0
-offset_bottom = 485.0
+anchor_left = 0.806424
+anchor_top = 0.594136
+anchor_right = 0.849577
+anchor_bottom = 0.798451
+offset_right = 50.2877
+offset_bottom = -32.3959
 rotation = 0.426205
 texture = ExtResource("5_8ldn6")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect5" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect5" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 465.0
-offset_right = 152.0
-offset_bottom = 565.0
+anchor_left = 0.0775136
+anchor_top = 0.687407
+anchor_right = 0.0775136
+anchor_bottom = 0.902099
+offset_left = -37.2956
+offset_top = 19.56
+offset_right = 62.7044
+offset_bottom = -19.5601
 rotation = 0.966046
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("3_57rew")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect6" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect6" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 995.0
-offset_top = 382.0
-offset_right = 1095.0
-offset_bottom = 482.0
+anchor_left = 0.863715
+anchor_top = 0.51558
+anchor_right = 0.979219
+anchor_bottom = 0.51558
+offset_top = 47.9043
+offset_right = -33.0608
+offset_bottom = 147.904
 rotation = -1.13097
 texture = ExtResource("3_57rew")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect7" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect7" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 556.0
-offset_top = 428.0
-offset_right = 656.0
-offset_bottom = 528.0
+anchor_left = 0.509717
+anchor_top = 0.632463
+anchor_right = 0.542366
+anchor_bottom = 0.842846
+offset_left = -31.194
+offset_top = 18.164
+offset_right = 31.1941
+offset_bottom = -18.1641
 rotation = 0.516202
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_6doed")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect8" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect8" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 312.0
-offset_right = 151.0
-offset_bottom = 412.0
+anchor_left = 0.0442708
+anchor_top = 0.481481
+anchor_right = 0.131481
+anchor_bottom = 0.63508
+offset_right = -0.466019
+offset_bottom = 0.468201
 rotation = -0.00467108
 texture = ExtResource("5_8ldn6")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect9" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect9" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 435.0
-offset_right = 445.0
-offset_bottom = 535.0
+anchor_left = 0.335273
+anchor_top = 0.640177
+anchor_right = 0.350491
+anchor_bottom = 0.856737
+offset_left = -41.2345
+offset_top = 20.1653
+offset_right = 41.2345
+offset_bottom = -20.1653
 rotation = 0.661116
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("5_8ldn6")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect10" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect10" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 955.0
-offset_top = 321.0
-offset_right = 1055.0
-offset_bottom = 421.0
+anchor_left = 0.718797
+anchor_top = 0.399186
+anchor_right = 0.718797
+anchor_bottom = 0.399186
+offset_left = 126.946
+offset_top = 62.3272
+offset_right = 226.946
+offset_bottom = 162.327
 rotation = -3.47059
 texture = ExtResource("6_edkup")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect11" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect11" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 172.0
-offset_right = 141.0
-offset_bottom = 272.0
+anchor_left = 0.0626684
+anchor_top = 0.237401
+anchor_right = 0.0953177
+anchor_bottom = 0.447784
+offset_left = -31.194
+offset_top = 18.164
+offset_right = 31.194
+offset_bottom = -18.164
 rotation = 0.516202
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("6_edkup")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect12" type="TextureRect" parent="StartMenu/Collage"]
+[node name="TextureRect12" type="TextureRect" parent="StartScreen/Collage"]
 layout_mode = 0
-offset_left = 1088.0
-offset_top = 80.0
-offset_right = 1188.0
-offset_bottom = 180.0
+anchor_left = 0.944444
+anchor_top = 0.123457
+anchor_right = 0.945479
+anchor_bottom = 0.341692
+offset_right = 98.8085
+offset_bottom = -41.4163
 rotation = 0.776973
 texture = ExtResource("5_8ldn6")
+metadata/_edit_use_anchors_ = true
 
-[node name="TitleLabel" type="RichTextLabel" parent="StartMenu"]
+[node name="TitleLabel" type="RichTextLabel" parent="StartScreen"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = -1
+anchor_top = 0.0401235
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -298.0
-offset_bottom = -112.0
+anchor_bottom = 0.327161
+offset_bottom = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
 text = "[center][rainbow freq=1.5 sat=0.4 val=0.5][wave amp=100.0 freq=1.62fff5 connected=1]Dope me laugh![/wave][/rainbow][/center]"
+metadata/_edit_use_anchors_ = true
 
-[node name="StartButton" type="Button" parent="StartMenu"]
+[node name="Menu" type="Control" parent="StartScreen"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -124.0
-offset_right = 150.0
-offset_bottom = -18.0
+anchor_top = 0.257716
+anchor_right = 1.0
+anchor_bottom = 0.716049
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="StartScreen/Menu"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.369792
+anchor_top = 0.111111
+anchor_right = 0.630208
+anchor_bottom = 0.468013
 grow_horizontal = 2
 grow_vertical = 2
 shortcut = SubResource("Shortcut_b71qg")
 text = "START!"
+metadata/_edit_use_anchors_ = true
 
-[node name="CreditsButton" type="Button" parent="StartMenu"]
+[node name="CreditsButton" type="Button" parent="StartScreen/Menu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -4.0
-offset_right = 150.0
-offset_bottom = 102.0
+anchors_preset = -1
+anchor_left = 0.369792
+anchor_top = 0.515152
+anchor_right = 0.630208
+anchor_bottom = 0.872054
 grow_horizontal = 2
 grow_vertical = 2
 shortcut = SubResource("Shortcut_365m6")
 text = "Credits"
+metadata/_edit_use_anchors_ = true
 
-[node name="CreditsMenu" type="Control" parent="."]
+[node name="CreditsScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -322,38 +379,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wxehv")
+metadata/_edit_use_anchors_ = true
 
-[node name="Logo" type="TextureRect" parent="CreditsMenu"]
+[node name="Logo" type="TextureRect" parent="CreditsScreen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.083
+anchor_top = 0.0833333
 anchor_right = 1.0
-anchor_bottom = 0.713
-offset_top = 0.215996
-offset_bottom = 8.97595
+anchor_bottom = 0.726852
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_vd0eb")
 expand_mode = 3
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="BackButton" type="Button" parent="CreditsMenu"]
+[node name="BackButton" type="Button" parent="CreditsScreen"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -148.0
-offset_right = 150.0
-offset_bottom = -42.0
+anchors_preset = -1
+anchor_left = 0.369792
+anchor_top = 0.771605
+anchor_right = 0.630208
+anchor_bottom = 0.935185
 grow_horizontal = 2
 grow_vertical = 0
 shortcut = SubResource("Shortcut_o8cbr")
 text = "Back"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="StartMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="StartScreen/Menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartScreen/Menu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CreditsScreen/BackButton" to="." method="_on_back_button_pressed"]

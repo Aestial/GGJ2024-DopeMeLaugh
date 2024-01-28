@@ -12,37 +12,46 @@ class Slot:
 	var index = 0
 	var is_used = false
 	var is_active = false
-	
+
+var audio
 var available_slots = 0
+var credits_screen
 var is_busy = false
 var score = 0
+var score_screen
+var start_screen
 var slots = []
 var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio = $AudioStreamPlayer
+	credits_screen = $CreditsScreen
+	score_screen = $ScoreScreen
+	start_screen = $StartScreen
+	
 	randomize()
 	_create_slots()
 	_print_score()
 	_on_back_button_pressed()
 	available_slots = slots.size()
-	$Score.visible = false
+	score_screen.visible = false
 	timer = get_node("Timer")
 	
 func _on_start_button_pressed():
-	$AudioStreamPlayer.stream = game_music_stream
-	$AudioStreamPlayer.play()
-	$Score.visible = true
-	$StartMenu.visible = false
+	audio.stream = game_music_stream
+	audio.play()
+	score_screen.visible = true
+	start_screen.visible = false
 	_set_timer(3)
 	
 func _on_credits_button_pressed():
-	$StartMenu.visible = false
-	$CreditsMenu.visible = true
+	start_screen.visible = false
+	credits_screen.visible = true
 	
 func _on_back_button_pressed():
-	$StartMenu.visible = true
-	$CreditsMenu.visible = false
+	start_screen.visible = true
+	credits_screen.visible = false
 
 func _on_timer_timeout():
 	if (available_slots > 0):
@@ -98,4 +107,4 @@ func _set_timer(time = 0.0):
 	#print("Spawn time: " + str(spawnTime))
 
 func _print_score():
-	$Score/TitleLabel.text = score_prefix + str(score)
+	score_screen.get_node("TitleLabel").text = score_prefix + str(score)
