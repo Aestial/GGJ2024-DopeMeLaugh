@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://war8jbxuvlta"]
 
-[ext_resource type="Script" path="res://Customer.gd" id="1_af7xb"]
+[ext_resource type="Script" path="res://scenes/Customer.gd" id="1_af7xb"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="2_gdy6r"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_frxcx"]
 [ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/personaje1.png" id="4_8ukc0"]
 [ext_resource type="Texture2D" uid="uid://dxu2p76nb5bj4" path="res://sprites/container.png" id="5_juh31"]
-[ext_resource type="Script" path="res://Container.gd" id="7_5rrqn"]
+[ext_resource type="Script" path="res://scenes/Container.gd" id="7_5rrqn"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="7_xulmn"]
 [ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/container_open.png" id="8_mtw4n"]
 [ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/Pill2_color.png" id="9_3ouwj"]

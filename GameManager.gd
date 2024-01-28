@@ -1,12 +1,12 @@
 extends Node
 
-@export var num_slots = 4
+@export var game_music_stream: AudioStream
 @export var min_spawn_time = 3	
 @export var max_spawn_time = 10
+@export var num_slots = 4
 @export var score_prefix = "Score: "
-@export var game_music_stream: AudioStream
 
-var customer_scene = load("res://Customer.tscn")
+var customer_scene = load("res://scenes/Customer.tscn")
 
 class Slot:
 	var index = 0
