@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp7rdbg7g5vut"
-path="res://.godot/imported/Pill2_color.png-5cc2db999f79d32fa30f541d28a0a294.ctex"
+uid="uid://dxu2p76nb5bj4"
+path="res://.godot/imported/container.png-4c3038a230030bea27695a68ae69d899.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Pill2_color.png"
-dest_files=["res://.godot/imported/Pill2_color.png-5cc2db999f79d32fa30f541d28a0a294.ctex"]
+source_file="res://sprites/pills/container.png"
+dest_files=["res://.godot/imported/container.png-4c3038a230030bea27695a68ae69d899.ctex"]
 
 [params]
 

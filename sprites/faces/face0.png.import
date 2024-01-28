@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0i8812ypst1"
-path="res://.godot/imported/Pill3_color.png-0a86ceae92781e466ade3b3b672c9c57.ctex"
+uid="uid://ux2mrbtobukt"
+path="res://.godot/imported/face0.png-1882b274e4019a2380940367de51383f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Pill3_color.png"
-dest_files=["res://.godot/imported/Pill3_color.png-0a86ceae92781e466ade3b3b672c9c57.ctex"]
+source_file="res://sprites/faces/face0.png"
+dest_files=["res://.godot/imported/face0.png-1882b274e4019a2380940367de51383f.ctex"]
 
 [params]
 

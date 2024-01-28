@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pr7ongox1m51"
-path="res://.godot/imported/personaje1.png-357cf8e816afda565b6838c47b3a7cb9.ctex"
+uid="uid://p70q8bq870j4"
+path="res://.godot/imported/container_open.png-c3c2d6cbc9f48377490f8d1e6be34a03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/personaje1.png"
-dest_files=["res://.godot/imported/personaje1.png-357cf8e816afda565b6838c47b3a7cb9.ctex"]
+source_file="res://sprites/pills/container_open.png"
+dest_files=["res://.godot/imported/container_open.png-c3c2d6cbc9f48377490f8d1e6be34a03.ctex"]
 
 [params]
 
