@@ -1,21 +1,25 @@
-[gd_scene load_steps=23 format=3 uid="uid://war8jbxuvlta"]
+[gd_scene load_steps=27 format=3 uid="uid://war8jbxuvlta"]
 
 [ext_resource type="Script" path="res://scenes/Customer.gd" id="1_af7xb"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="2_gdy6r"]
-[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/Character0.png" id="2_so2xx"]
+[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/characters/character0.png" id="2_so2xx"]
+[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/characters/character1.png" id="3_44mg0"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_frxcx"]
-[ext_resource type="Texture2D" uid="uid://dxu2p76nb5bj4" path="res://sprites/container.png" id="5_juh31"]
+[ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/characters/character2.png" id="4_cireo"]
+[ext_resource type="Texture2D" uid="uid://dxu2p76nb5bj4" path="res://sprites/pills/container.png" id="5_juh31"]
+[ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/characters/character3.png" id="5_k07qv"]
+[ext_resource type="Texture2D" uid="uid://drnp7h3q8nnwf" path="res://sprites/characters/character4.png" id="6_im705"]
 [ext_resource type="Script" path="res://scenes/Container.gd" id="7_5rrqn"]
-[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="7_xulmn"]
-[ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/container_open.png" id="8_mtw4n"]
-[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/Pill2_color.png" id="9_3ouwj"]
-[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="10_gdxh0"]
-[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="11_8erp3"]
+[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="7_xulmn"]
+[ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/pills/container_open.png" id="8_mtw4n"]
+[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="9_3ouwj"]
+[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/pills/pill2.png" id="10_gdxh0"]
+[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/pills/pill3.png" id="11_8erp3"]
 [ext_resource type="Script" path="res://scenes/Score.gd" id="12_gejji"]
-[ext_resource type="Texture2D" uid="uid://ux2mrbtobukt" path="res://sprites/Face0.png" id="12_mixte"]
-[ext_resource type="Texture2D" uid="uid://chouutsjq5wjd" path="res://sprites/Face1.png" id="13_57ccb"]
-[ext_resource type="Texture2D" uid="uid://cvsa6fn2n6mom" path="res://sprites/Face2.png" id="14_hixwt"]
-[ext_resource type="Texture2D" uid="uid://cw6dgurtdefn3" path="res://sprites/Face3.png" id="15_w3jhc"]
+[ext_resource type="Texture2D" uid="uid://ux2mrbtobukt" path="res://sprites/faces/face0.png" id="12_mixte"]
+[ext_resource type="Texture2D" uid="uid://chouutsjq5wjd" path="res://sprites/faces/face1.png" id="13_57ccb"]
+[ext_resource type="Texture2D" uid="uid://cvsa6fn2n6mom" path="res://sprites/faces/face2.png" id="14_hixwt"]
+[ext_resource type="Texture2D" uid="uid://cw6dgurtdefn3" path="res://sprites/faces/face3.png" id="15_w3jhc"]
 [ext_resource type="AudioStream" uid="uid://hcsilb0dabd8" path="res://sounds/girllaugh.mp3" id="16_3n1p3"]
 [ext_resource type="AudioStream" uid="uid://pflyxtay7mai" path="res://sounds/241230__reitanna__pinkie-pie-laugh.wav" id="16_6h6m6"]
 [ext_resource type="AudioStream" uid="uid://bwj40fjnamouq" path="res://sounds/344064__reitanna__dumby-laugh.wav" id="17_5lg8k"]
@@ -38,16 +42,19 @@ max_wait_time = 18.0
 min_slot_width = 70
 max_slot_width = 260
 character_origin = Vector2(300, 280)
+character_sprites = Array[Texture2D]([ExtResource("2_so2xx"), ExtResource("3_44mg0"), ExtResource("4_cireo"), ExtResource("5_k07qv"), ExtResource("6_im705")])
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Character" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Character" type="Sprite2D" parent="Node2D"]
 z_index = -1
 position = Vector2(300, 280)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_so2xx")
 
-[node name="Container" type="Sprite2D" parent="."]
+[node name="Container" type="Sprite2D" parent="Node2D"]
 position = Vector2(760, 337)
 texture = SubResource("CompressedTexture2D_628sq")
 script = ExtResource("7_5rrqn")
@@ -55,25 +62,25 @@ closed_container_sprite = ExtResource("5_juh31")
 open_container_sprite = ExtResource("8_mtw4n")
 pill_textures = Array[Texture]([ExtResource("9_3ouwj"), ExtResource("10_gdxh0"), ExtResource("11_8erp3"), ExtResource("7_xulmn")])
 
-[node name="PillStart" type="Sprite2D" parent="Container"]
+[node name="PillStart" type="Sprite2D" parent="Node2D/Container"]
 visible = false
 show_behind_parent = true
 position = Vector2(-90, 160)
 texture = ExtResource("9_3ouwj")
 
-[node name="PillRowEnd" type="Sprite2D" parent="Container"]
+[node name="PillRowEnd" type="Sprite2D" parent="Node2D/Container"]
 visible = false
 show_behind_parent = true
 position = Vector2(110, 160)
 texture = ExtResource("10_gdxh0")
 
-[node name="PillColumnStart" type="Sprite2D" parent="Container"]
+[node name="PillColumnStart" type="Sprite2D" parent="Node2D/Container"]
 visible = false
 show_behind_parent = true
 position = Vector2(-90, -40)
 texture = ExtResource("11_8erp3")
 
-[node name="PillEnd" type="Sprite2D" parent="Container"]
+[node name="PillEnd" type="Sprite2D" parent="Node2D/Container"]
 visible = false
 show_behind_parent = true
 position = Vector2(110, -40)
@@ -86,44 +93,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Control" parent="Control"]
 anchors_preset = 0
-offset_left = 944.0
-offset_top = 82.0
-offset_right = 1144.0
-offset_bottom = 282.0
+anchor_left = 0.819444
+anchor_top = 0.126543
+anchor_right = 0.993056
+anchor_bottom = 0.435185
 theme = ExtResource("3_frxcx")
 script = ExtResource("12_gejji")
 faces = Array[Texture]([ExtResource("12_mixte"), ExtResource("13_57ccb"), ExtResource("14_hixwt"), ExtResource("15_w3jhc")])
 laughs = Array[AudioStream]([ExtResource("16_6h6m6"), ExtResource("17_5lg8k"), ExtResource("16_3n1p3"), ExtResource("19_ygl2m")])
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/Score"]
 
 [node name="Label" type="Label" parent="Control/Score"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.72
+anchor_top = 0.715
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Score: A"
 horizontal_alignment = 1
 vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/Score"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.795
-offset_bottom = 3.0
+anchor_bottom = 0.81
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_mixte")
 expand_mode = 3
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Slot" type="Panel" parent="Control"]
 layout_mode = 0
@@ -148,11 +157,12 @@ vertical_alignment = 1
 
 [node name="Recipe" type="Panel" parent="Control"]
 layout_mode = 0
-offset_left = 242.0
-offset_top = 268.0
-offset_right = 502.0
-offset_bottom = 568.0
+anchor_left = 0.210069
+anchor_top = 0.41358
+anchor_right = 0.435764
+anchor_bottom = 0.876543
 theme = ExtResource("3_frxcx")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control/Recipe"]
 layout_mode = 1

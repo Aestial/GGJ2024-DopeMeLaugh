@@ -16,7 +16,9 @@ signal solved
 # Sprites parameters
 @export var character_origin = Vector2(320, 280)
 @export var character_offset = Vector2(120, 0)
+@export var character_sprites: Array[Texture2D]
 
+var container
 var is_selected = false
 var is_solved = false
 var recipe = {"S":5, "D":2, "F":4, "G":6}
@@ -28,7 +30,7 @@ var waitTime
 
 func set_slot(_slot):
 	slot = _slot
-	$Character.position = character_origin + character_offset * slot
+	_set_character(slot)
 	$Control/Slot.position = Vector2(0, slot * 80)
 	$Control/Slot/ARContainer/Label.text = str(slot + 1)
 
@@ -37,6 +39,7 @@ func _ready():
 	# Godot needed functions for random and input events
 	randomize()
 	set_process_input(true)
+	container = $Node2D/Container
 	# Customer recipe
 	_randomize_recipe()	
 	_print_recipe()
@@ -64,7 +67,7 @@ func _input(event):
 				var distance = _get_recipe_distance()
 				print("Recipe distance: " + str(distance))
 				var score = 10 - distance
-				$Container.close()
+				container.close()
 				$Control/Score.set_score(score)
 				$Control/Slot.visible = false
 				emit_signal("solved", slot, score)
@@ -75,7 +78,7 @@ func _input(event):
 			for key in recipe.keys():
 				if event.keycode == OS.find_keycode_from_string(key):
 					solution[key] += 1
-					$Container.add_pill(key)
+					container.add_pill(key)
 
 func _process(_delta):
 	var percentage = timer.time_left / waitTime
@@ -88,9 +91,9 @@ func _on_tree_exited():
 	emit_signal("destroyed", slot)
 
 func _select(is_true):
+	container.open()
 	is_selected = is_true
 	timer.stop()
-	$Container.open()
 	emit_signal("selected", slot)
 	_show_details(is_selected)
 	
@@ -112,7 +115,13 @@ func _randomize_recipe():
 	for key in recipe.keys():
 		var value = randi_range(min_pill_count, max_pill_count)
 		recipe[key] = value
-		
+
+func _set_character(slot):
+	var char_index = randi_range(0, character_sprites.size() - 1)
+	var character = $Node2D/Character
+	character.texture = character_sprites[char_index]
+	character.position = character_origin + character_offset * slot
+
 func _show_details(show):
 	$Control/Recipe.visible = show
-	$Container.visible = show
+	container.visible = show
