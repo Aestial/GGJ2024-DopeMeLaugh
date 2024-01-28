@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="10_gdxh0"]
 [ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="11_8erp3"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_628sq"]
+load_path = "res://.godot/imported/container_open.png-d26ee278c21ec127bad776b8ce339cba.ctex"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1gpv"]
 bg_color = Color(0.219608, 0.219608, 0.219608, 1)
 corner_radius_top_left = 5
@@ -19,14 +22,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 5
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_628sq"]
-load_path = "res://.godot/imported/container_open.png-d26ee278c21ec127bad776b8ce339cba.ctex"
-
 [node name="Customer" type="Node"]
 script = ExtResource("1_af7xb")
-max_pill_count = 7
 min_wait_time = 5.0
-max_wait_time = 9.0
+max_wait_time = 18.0
 min_slot_width = 70
 max_slot_width = 260
 
@@ -37,58 +36,6 @@ z_index = -1
 position = Vector2(320, 280)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_8ukc0")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Slot" type="Panel" parent="Control"]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 80.0
-theme = ExtResource("2_gdy6r")
-theme_override_styles/panel = SubResource("StyleBoxFlat_s1gpv")
-
-[node name="ARContainer" type="AspectRatioContainer" parent="Control/Slot"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 80.0
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/Slot/ARContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 69
-text = "N"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Recipe" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 200.0
-offset_right = 410.0
-offset_bottom = 500.0
-theme = ExtResource("3_frxcx")
-
-[node name="Label" type="Label" parent="Control/Recipe"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "5 S
-6 D
-10 F"
 
 [node name="Container" type="Sprite2D" parent="."]
 position = Vector2(777, 337)
@@ -121,6 +68,58 @@ visible = false
 show_behind_parent = true
 position = Vector2(110, -40)
 texture = ExtResource("7_xulmn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 80.0
+theme = ExtResource("2_gdy6r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1gpv")
+
+[node name="ARContainer" type="AspectRatioContainer" parent="Control/Slot"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 80.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Slot/ARContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 69
+text = "N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Recipe" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 262.0
+offset_right = 486.0
+offset_bottom = 562.0
+theme = ExtResource("3_frxcx")
+
+[node name="Label" type="Label" parent="Control/Recipe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5 S
+6 D
+10 F"
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_wait_timer_timeout"]

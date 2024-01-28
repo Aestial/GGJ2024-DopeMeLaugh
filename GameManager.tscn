@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=14 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
+[ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/personaje2.png" id="3_2a3vo"]
+[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/Pill2_color.png" id="3_57rew"]
 [ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="3_ofllb"]
+[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/personaje1.png" id="3_uq4oc"]
+[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="4_6doed"]
+[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="5_8ldn6"]
+[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="6_edkup"]
+[ext_resource type="AudioStream" uid="uid://bf7xmo8tb3etp" path="res://sounds/68212__zebraphone__loop5.mp3" id="10_7nnyv"]
+[ext_resource type="AudioStream" uid="uid://cncooenk8tgic" path="res://sounds/41021__hello_flowers__if-you-see-kat120bpm.wav" id="10_cdsa3"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8cdky"]
 device = -1
@@ -13,51 +21,13 @@ events = [SubResource("InputEventKey_8cdky")]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
-min_spawn_time = 5
-max_spawn_time = 11
+min_spawn_time = 4
+max_spawn_time = 14
+game_music_stream = ExtResource("10_7nnyv")
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="StartMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_wxehv")
-
-[node name="TitleLabel" type="Label" parent="StartMenu"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -303.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 100
-text = "Serve me laugh!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StartButton" type="Button" parent="StartMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -47.0
-offset_right = 150.0
-offset_bottom = 47.0
-grow_horizontal = 2
-grow_vertical = 2
-shortcut = SubResource("Shortcut_o8cbr")
-text = "Start!"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cdsa3")
+autoplay = true
 
 [node name="Score" type="Control" parent="."]
 layout_mode = 3
@@ -81,5 +51,190 @@ text = "Score: XXXX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="StartMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wxehv")
+
+[node name="Collage" type="Control" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -223.0
+offset_right = -64.0
+offset_bottom = 289.001
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_uq4oc")
+
+[node name="Character2" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -223.0
+offset_bottom = 289.001
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_2a3vo")
+
+[node name="TextureRect" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 273.0
+offset_right = 328.0
+offset_bottom = 373.0
+rotation = 1.70575
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("3_57rew")
+
+[node name="TextureRect2" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 371.0
+offset_right = 821.0
+offset_bottom = 471.0
+rotation = -0.00467108
+texture = ExtResource("3_57rew")
+
+[node name="TextureRect3" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 436.0
+offset_right = 238.0
+offset_bottom = 536.0
+rotation = -0.598083
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("4_6doed")
+
+[node name="TextureRect4" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 337.0
+offset_right = 1075.0
+offset_bottom = 437.0
+rotation = 0.426205
+texture = ExtResource("5_8ldn6")
+
+[node name="TextureRect5" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 498.0
+offset_top = 549.0
+offset_right = 598.0
+offset_bottom = 649.0
+rotation = 0.966046
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("3_57rew")
+
+[node name="TextureRect6" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 1023.0
+offset_top = 316.0
+offset_right = 1123.0
+offset_bottom = 416.0
+rotation = -1.13097
+texture = ExtResource("3_57rew")
+
+[node name="TextureRect7" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 506.0
+offset_top = 422.0
+offset_right = 606.0
+offset_bottom = 522.0
+rotation = 0.516202
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("4_6doed")
+
+[node name="TextureRect8" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 51.0
+offset_top = 312.0
+offset_right = 151.0
+offset_bottom = 412.0
+rotation = -0.00467108
+texture = ExtResource("5_8ldn6")
+
+[node name="TextureRect9" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 325.0
+offset_top = 389.0
+offset_right = 425.0
+offset_bottom = 489.0
+rotation = 0.661116
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("5_8ldn6")
+
+[node name="TextureRect10" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 955.0
+offset_top = 321.0
+offset_right = 1055.0
+offset_bottom = 421.0
+rotation = -3.47059
+texture = ExtResource("6_edkup")
+
+[node name="TextureRect11" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 41.0
+offset_top = 172.0
+offset_right = 141.0
+offset_bottom = 272.0
+rotation = 0.516202
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("6_edkup")
+
+[node name="TextureRect12" type="TextureRect" parent="StartMenu/Collage"]
+offset_left = 1088.0
+offset_top = 80.0
+offset_right = 1188.0
+offset_bottom = 180.0
+rotation = 0.776973
+texture = ExtResource("5_8ldn6")
+
+[node name="TitleLabel" type="RichTextLabel" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/normal_font_size = 126
+bbcode_enabled = true
+text = "[center][rainbow freq=1.5 sat=0.4 val=0.5][wave amp=100.0 freq=1.62fff5 connected=1]Serve me laugh![/wave][/rainbow][/center]"
+
+[node name="StartButton" type="Button" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -47.0
+offset_right = 150.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+shortcut = SubResource("Shortcut_o8cbr")
+text = "Start!"
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

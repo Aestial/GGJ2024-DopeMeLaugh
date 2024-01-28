@@ -4,6 +4,7 @@ extends Node
 @export var min_spawn_time = 3	
 @export var max_spawn_time = 10
 @export var score_prefix = "Score: "
+@export var game_music_stream: AudioStream
 
 var customer_scene = load("res://Customer.tscn")
 
@@ -29,9 +30,11 @@ func _ready():
 	timer = get_node("Timer")
 	
 func _on_start_button_pressed():
-	$StartMenu.visible = false
+	$AudioStreamPlayer.stream = game_music_stream
+	$AudioStreamPlayer.play()
 	$Score.visible = true
-	_set_timer(3.5)
+	$StartMenu.visible = false
+	_set_timer(3)
 
 func _on_timer_timeout():
 	if (available_slots > 0):
@@ -40,8 +43,7 @@ func _on_timer_timeout():
 		_set_timer()
 	else:
 		_set_timer(min_spawn_time)
-	
-						
+
 func _create_customer(slot):
 	available_slots -= 1
 	slots[slot].is_used = true
