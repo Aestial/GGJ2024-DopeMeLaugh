@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=20 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
@@ -9,21 +9,40 @@
 [ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/Pill3_color.png" id="4_6doed"]
 [ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/Pill4_color.png" id="5_8ldn6"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/Pill5_color.png" id="6_edkup"]
+[ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/personaje3.png" id="8_4fpjr"]
 [ext_resource type="AudioStream" uid="uid://bf7xmo8tb3etp" path="res://sounds/68212__zebraphone__loop5.mp3" id="10_7nnyv"]
 [ext_resource type="AudioStream" uid="uid://cncooenk8tgic" path="res://sounds/41021__hello_flowers__if-you-see-kat120bpm.wav" id="10_cdsa3"]
+[ext_resource type="Texture2D" uid="uid://lv87x46afso7" path="res://Logo.png" id="13_vd0eb"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_8cdky"]
+[sub_resource type="InputEventKey" id="InputEventKey_82lp1"]
 device = -1
 keycode = 4194309
 
+[sub_resource type="Shortcut" id="Shortcut_b71qg"]
+events = [SubResource("InputEventKey_82lp1")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_07d6q"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="Shortcut" id="Shortcut_365m6"]
+events = [SubResource("InputEventKey_07d6q")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_khkfd"]
+device = -1
+keycode = 4194308
+
 [sub_resource type="Shortcut" id="Shortcut_o8cbr"]
-events = [SubResource("InputEventKey_8cdky")]
+events = [SubResource("InputEventKey_khkfd")]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
 game_music_stream = ExtResource("10_7nnyv")
 min_spawn_time = 4
 max_spawn_time = 14
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cdsa3")
@@ -75,12 +94,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -223.0
-offset_right = -64.0
-offset_bottom = 289.001
+offset_left = -572.0
+offset_top = -165.0
+offset_right = -60.0
+offset_bottom = 347.001
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_uq4oc")
 
 [node name="Character2" type="TextureRect" parent="StartMenu/Collage"]
@@ -90,12 +110,30 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -512.0
-offset_top = -223.0
-offset_bottom = 289.001
+offset_left = -390.0
+offset_top = -173.0
+offset_right = 122.0
+offset_bottom = 339.001
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_2a3vo")
+
+[node name="Character3" type="TextureRect" parent="StartMenu/Collage"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -772.0
+offset_top = -181.0
+offset_right = -260.0
+offset_bottom = 331.001
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_4fpjr")
 
 [node name="TextureRect" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
@@ -109,57 +147,57 @@ texture = ExtResource("3_57rew")
 
 [node name="TextureRect2" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 721.0
-offset_top = 371.0
-offset_right = 821.0
-offset_bottom = 471.0
+offset_left = 733.0
+offset_top = 403.0
+offset_right = 833.0
+offset_bottom = 503.0
 rotation = -0.00467108
 texture = ExtResource("3_57rew")
 
 [node name="TextureRect3" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 138.0
-offset_top = 436.0
-offset_right = 238.0
-offset_bottom = 536.0
+offset_left = 186.0
+offset_top = 432.0
+offset_right = 286.0
+offset_bottom = 532.0
 rotation = -0.598083
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_6doed")
 
 [node name="TextureRect4" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 975.0
-offset_top = 337.0
-offset_right = 1075.0
-offset_bottom = 437.0
+offset_left = 929.0
+offset_top = 385.0
+offset_right = 1029.0
+offset_bottom = 485.0
 rotation = 0.426205
 texture = ExtResource("5_8ldn6")
 
 [node name="TextureRect5" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 498.0
-offset_top = 549.0
-offset_right = 598.0
-offset_bottom = 649.0
+offset_left = 52.0
+offset_top = 465.0
+offset_right = 152.0
+offset_bottom = 565.0
 rotation = 0.966046
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("3_57rew")
 
 [node name="TextureRect6" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 1023.0
-offset_top = 316.0
-offset_right = 1123.0
-offset_bottom = 416.0
+offset_left = 995.0
+offset_top = 382.0
+offset_right = 1095.0
+offset_bottom = 482.0
 rotation = -1.13097
 texture = ExtResource("3_57rew")
 
 [node name="TextureRect7" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 422.0
-offset_right = 606.0
-offset_bottom = 522.0
+offset_left = 556.0
+offset_top = 428.0
+offset_right = 656.0
+offset_bottom = 528.0
 rotation = 0.516202
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("4_6doed")
@@ -175,10 +213,10 @@ texture = ExtResource("5_8ldn6")
 
 [node name="TextureRect9" type="TextureRect" parent="StartMenu/Collage"]
 layout_mode = 0
-offset_left = 325.0
-offset_top = 389.0
-offset_right = 425.0
-offset_bottom = 489.0
+offset_left = 345.0
+offset_top = 435.0
+offset_right = 445.0
+offset_bottom = 535.0
 rotation = 0.661116
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("5_8ldn6")
@@ -217,12 +255,12 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -240.0
-offset_bottom = -68.0
+offset_top = -279.0
+offset_bottom = -129.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/normal_font_size = 126
+theme_override_font_sizes/normal_font_size = 140
 bbcode_enabled = true
 text = "[center][rainbow freq=1.5 sat=0.4 val=0.5][wave amp=100.0 freq=1.62fff5 connected=1]Serve me laugh![/wave][/rainbow][/center]"
 
@@ -234,15 +272,70 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -47.0
+offset_top = -124.0
 offset_right = 150.0
-offset_bottom = 47.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut = SubResource("Shortcut_b71qg")
+text = "START!"
+
+[node name="CreditsButton" type="Button" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -4.0
+offset_right = 150.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+shortcut = SubResource("Shortcut_365m6")
+text = "Credits"
+
+[node name="CreditsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wxehv")
+
+[node name="Logo" type="TextureRect" parent="CreditsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.083
+anchor_right = 1.0
+anchor_bottom = 0.713
+offset_top = 0.215996
+offset_bottom = 8.97595
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_vd0eb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="CreditsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -148.0
+offset_right = 150.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
 shortcut = SubResource("Shortcut_o8cbr")
-text = "Start!"
+text = "Back"
 
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CreditsMenu/BackButton" to="." method="_on_back_button_pressed"]

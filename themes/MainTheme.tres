@@ -47,7 +47,6 @@ Button/styles/pressed = SubResource("StyleBoxFlat_60mi0")
 HBoxContainer/constants/separation = 4
 Label/colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
 Label/colors/font_shadow_color = Color(0.388235, 0.356863, 0.294118, 0.752941)
-Label/constants/line_spacing = 3
 Label/constants/shadow_offset_x = 2
 Label/constants/shadow_offset_y = 2
 Label/font_sizes/font_size = 80

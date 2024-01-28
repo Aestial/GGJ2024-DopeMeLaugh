@@ -24,7 +24,7 @@ func _ready():
 	randomize()
 	_create_slots()
 	_print_score()
-	
+	_on_back_button_pressed()
 	available_slots = slots.size()
 	$Score.visible = false
 	timer = get_node("Timer")
@@ -35,6 +35,14 @@ func _on_start_button_pressed():
 	$Score.visible = true
 	$StartMenu.visible = false
 	_set_timer(3)
+	
+func _on_credits_button_pressed():
+	$StartMenu.visible = false
+	$CreditsMenu.visible = true
+	
+func _on_back_button_pressed():
+	$StartMenu.visible = true
+	$CreditsMenu.visible = false
 
 func _on_timer_timeout():
 	if (available_slots > 0):
