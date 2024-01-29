@@ -42,7 +42,7 @@ func _ready():
 	container = $Node2D/Container
 	# Customer recipe
 	_randomize_recipe()	
-	_print_recipe()
+	_print_rx(recipe)
 	# Customer timer
 	slot_width = max_slot_width
 	_show_details(false)
@@ -70,6 +70,7 @@ func _input(event):
 				container.close()
 				$Control/Score.set_score(score)
 				$Control/Slot.visible = false
+				$Node2D/Character.modulate = Color(0.7, 0.7, 0.7, 0.7)
 				emit_signal("solved", slot, score)
 				await get_tree().create_timer(0.5).timeout
 				_show_details(false)
@@ -103,25 +104,21 @@ func _get_recipe_distance():
 		distance += abs(recipe[key] - solution[key])
 	return distance
 
-func _print_recipe():
-	var message = ""
-	for pill in recipe:
-		var amount = recipe[pill]
-		if (amount > 0):
-			message += pill + ": " + str(amount) + "\n"
-	$Control/Recipe/Label.text = message
-
+func _print_rx(rx):
+	$Control/Prescription.print(rx)
+	pass
+	
 func _randomize_recipe():
 	for key in recipe.keys():
 		var value = randi_range(min_pill_count, max_pill_count)
 		recipe[key] = value
 
-func _set_character(slot):
+func _set_character(s):
 	var char_index = randi_range(0, character_sprites.size() - 1)
 	var character = $Node2D/Character
 	character.texture = character_sprites[char_index]
-	character.position = character_origin + character_offset * slot
+	character.position = character_origin + character_offset * s
 
 func _show_details(show):
-	$Control/Recipe.visible = show
+	$Control/Prescription.visible = show
 	container.visible = show

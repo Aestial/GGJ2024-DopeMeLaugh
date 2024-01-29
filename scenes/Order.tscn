@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://sss70cffl2os"]
+
+[ext_resource type="Texture2D" uid="uid://bf0hqa6m3iiaa" path="res://sprites/keyboard/Key_F.png" id="1_7jwtu"]
+[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="1_qnn7f"]
+[ext_resource type="Script" path="res://scenes/Order.gd" id="1_qwdl8"]
+
+[node name="Order" type="Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_qnn7f")
+script = ExtResource("1_qwdl8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.271875
+anchor_right = 0.999999
+anchor_bottom = 1.00368
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "alium: 10"
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Key" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.780392)
+layout_mode = 2
+anchor_right = 0.281
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7jwtu")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

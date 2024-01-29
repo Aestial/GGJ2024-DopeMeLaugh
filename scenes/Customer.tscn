@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://war8jbxuvlta"]
+[gd_scene load_steps=33 format=3 uid="uid://war8jbxuvlta"]
 
 [ext_resource type="Script" path="res://scenes/Customer.gd" id="1_af7xb"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="2_gdy6r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/characters/character3.png" id="5_k07qv"]
 [ext_resource type="Texture2D" uid="uid://drnp7h3q8nnwf" path="res://sprites/characters/character4.png" id="6_im705"]
 [ext_resource type="Script" path="res://scenes/Container.gd" id="7_5rrqn"]
+[ext_resource type="Texture2D" uid="uid://dyjfxl55qks04" path="res://sprites/square-xxl.png" id="7_m27m6"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="7_xulmn"]
 [ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/pills/container_open.png" id="8_mtw4n"]
 [ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="9_3ouwj"]
@@ -24,6 +25,11 @@
 [ext_resource type="AudioStream" uid="uid://pflyxtay7mai" path="res://sounds/241230__reitanna__pinkie-pie-laugh.wav" id="16_6h6m6"]
 [ext_resource type="AudioStream" uid="uid://bwj40fjnamouq" path="res://sounds/344064__reitanna__dumby-laugh.wav" id="17_5lg8k"]
 [ext_resource type="AudioStream" uid="uid://ca7avm0643xso" path="res://sounds/440575__scicofilmscom__silly-male-laugh-hehehe-lol.mp3" id="19_ygl2m"]
+[ext_resource type="Script" path="res://scenes/Prescription.gd" id="26_c0p46"]
+[ext_resource type="Texture2D" uid="uid://bf0hqa6m3iiaa" path="res://sprites/keyboard/Key_F.png" id="26_x3d7f"]
+[ext_resource type="Texture2D" uid="uid://den3w5axyinr4" path="res://sprites/keyboard/Key_S.png" id="27_ckjgd"]
+[ext_resource type="Texture2D" uid="uid://tli2j5poy4v3" path="res://sprites/keyboard/Key_D.png" id="28_vnuk6"]
+[ext_resource type="Texture2D" uid="uid://f831fu47a5vg" path="res://sprites/keyboard/Key_G.png" id="30_gslh8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_628sq"]
 load_path = "res://.godot/imported/container_open.png-d26ee278c21ec127bad776b8ce339cba.ctex"
@@ -42,7 +48,7 @@ max_wait_time = 18.0
 min_slot_width = 70
 max_slot_width = 260
 character_origin = Vector2(300, 280)
-character_sprites = Array[Texture2D]([ExtResource("2_so2xx"), ExtResource("3_44mg0"), ExtResource("4_cireo"), ExtResource("5_k07qv"), ExtResource("6_im705")])
+character_sprites = Array[Texture2D]([ExtResource("5_k07qv"), ExtResource("3_44mg0"), ExtResource("6_im705"), ExtResource("4_cireo"), ExtResource("2_so2xx")])
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -53,6 +59,14 @@ z_index = -1
 position = Vector2(300, 280)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_so2xx")
+
+[node name="Counter" type="Sprite2D" parent="Node2D"]
+visible = false
+modulate = Color(0.955963, 0.955963, 0.955963, 1)
+z_index = -1
+position = Vector2(768, 458)
+scale = Vector2(3, 1.5)
+texture = ExtResource("7_m27m6")
 
 [node name="Container" type="Sprite2D" parent="Node2D"]
 position = Vector2(760, 337)
@@ -155,29 +169,31 @@ text = "N"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Recipe" type="Panel" parent="Control"]
-layout_mode = 0
-anchor_left = 0.210069
-anchor_top = 0.41358
-anchor_right = 0.435764
-anchor_bottom = 0.876543
+[node name="Prescription" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208333
+anchor_top = 0.385802
+anchor_right = 0.486111
+anchor_bottom = 0.910494
 theme = ExtResource("3_frxcx")
+script = ExtResource("26_c0p46")
+drug_names = Array[String](["Sanax", "Dorphine", "Falium", "Gothadone"])
+key_sprites = Array[Texture2D]([ExtResource("27_ckjgd"), ExtResource("28_vnuk6"), ExtResource("26_x3d7f"), ExtResource("30_gslh8")])
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Recipe"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Prescription"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = -20.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "5 S
-6 D
-10 F"
+alignment = 1
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_wait_timer_timeout"]
