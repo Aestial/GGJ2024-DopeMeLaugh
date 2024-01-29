@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://war8jbxuvlta"]
+[gd_scene load_steps=34 format=3 uid="uid://war8jbxuvlta"]
 
 [ext_resource type="Script" path="res://scenes/Customer.gd" id="1_af7xb"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="2_gdy6r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://drnp7h3q8nnwf" path="res://sprites/characters/character4.png" id="6_im705"]
 [ext_resource type="Script" path="res://scenes/Container.gd" id="7_5rrqn"]
 [ext_resource type="Texture2D" uid="uid://dyjfxl55qks04" path="res://sprites/square-xxl.png" id="7_m27m6"]
+[ext_resource type="AudioStream" uid="uid://ddcxdger2mcpu" path="res://sounds/577972__boxwell__comical-scream-woman.wav" id="7_rhjg1"]
 [ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="7_xulmn"]
 [ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/pills/container_open.png" id="8_mtw4n"]
 [ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="9_3ouwj"]
@@ -51,6 +52,9 @@ character_origin = Vector2(330, 300)
 character_sprites = Array[Texture2D]([ExtResource("5_k07qv"), ExtResource("3_44mg0"), ExtResource("6_im705"), ExtResource("4_cireo"), ExtResource("2_so2xx")])
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rhjg1")
 
 [node name="Node2D" type="Node2D" parent="."]
 

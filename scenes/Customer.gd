@@ -86,6 +86,11 @@ func _process(_delta):
 	$Control/Slot.size.x = lerp(min_slot_width, max_slot_width, percentage)
 
 func _on_wait_timer_timeout():
+	$AudioStreamPlayer.play()
+	$Node2D/Character.modulate = Color(0.7, 0.7, 0.7, 0.7)
+	_show_details(is_selected)
+	timer.stop()
+	await get_tree().create_timer(1.5).timeout
 	queue_free()
 
 func _on_tree_exited():
