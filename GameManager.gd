@@ -26,7 +26,6 @@ var start_screen
 var slots = []
 var timer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	audio = $AudioStreamPlayer
 	credits_screen = $CreditsScreen
@@ -93,7 +92,7 @@ func _destroyed_handler(slot):
 	available_slots += 1
 	slots[slot].is_used = false
 	
-func _lost_handler(slot, lost_score):
+func _lost_handler(_slot, lost_score):
 	score += lost_score
 
 func _selected_handler(slot):

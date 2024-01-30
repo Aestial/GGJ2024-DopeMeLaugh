@@ -44,7 +44,6 @@ corner_radius_bottom_left = 5
 [node name="Inmate" type="Node"]
 script = ExtResource("1_6kei2")
 max_wait_time = 18.0
-character_origin = Vector2(300, 360)
 character_offset = Vector2(150, 0)
 character_sprites = Array[Texture2D]([ExtResource("2_bk4u0"), ExtResource("3_28f68"), ExtResource("4_a06u8"), ExtResource("5_i64uu"), ExtResource("6_s0evf")])
 
@@ -58,7 +57,7 @@ stream = ExtResource("7_jewq2")
 [node name="Character" type="Sprite2D" parent="Node2D"]
 z_index = -2
 z_as_relative = false
-position = Vector2(320, 360)
+position = Vector2(300, 360)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_s0evf")
 

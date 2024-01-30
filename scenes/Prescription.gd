@@ -20,7 +20,3 @@ func _add_order(type, count):
 	var new_order = order_scene.instantiate()
 	new_order.set_order(sprite, message)
 	$VBoxContainer.add_child(new_order)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.

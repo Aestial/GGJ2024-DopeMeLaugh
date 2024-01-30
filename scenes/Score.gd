@@ -31,6 +31,5 @@ func set_score(score):
 	$TextureRect.texture = texture
 	visible = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false

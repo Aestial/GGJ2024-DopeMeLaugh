@@ -14,10 +14,7 @@ signal solved
 # UI parameters
 @export var min_slot_width = 80
 @export var max_slot_width = 250
-@export var panel_speed = 10
 # Sprites parameters
-# TODO Make this private and read from $Character position at ready
-@export var character_origin = Vector2(320, 360)
 @export var character_offset = Vector2(120, 0)
 @export var character_sprites: Array[Texture2D]
 
@@ -37,7 +34,6 @@ func set_slot(_slot):
 	$Control/Slot.position = Vector2(0, slot * 80)
 	$Control/Slot/ARContainer/Label.text = str(slot + 1)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	# Godot needed functions for random and input events
 	randomize()
@@ -124,8 +120,9 @@ func _randomize_recipe():
 func _set_character(s):
 	var char_index = randi_range(0, character_sprites.size() - 1)
 	var character = $Node2D/Character
+	var origin = character.position
 	character.texture = character_sprites[char_index]
-	character.position = character_origin + character_offset * s
+	character.position = origin + character_offset * s
 
 func _show_details(show):
 	$Control/Prescription.visible = show
