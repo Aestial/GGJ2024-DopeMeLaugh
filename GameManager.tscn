@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=24 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
+[ext_resource type="AudioStream" uid="uid://mx4b1jmkwovw" path="res://sounds/looperman-l-3062298-0209903-eminem-x-slim-shady-type-guitar.wav" id="2_rdhyv"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
 [ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/characters/character2.png" id="3_2a3vo"]
 [ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="3_57rew"]
@@ -41,7 +42,9 @@ events = [SubResource("InputEventKey_khkfd")]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
+credits_music_stream = ExtResource("2_rdhyv")
 game_music_stream = ExtResource("10_7nnyv")
+menu_music_stream = ExtResource("10_cdsa3")
 max_spawn_time = 11.0
 
 [node name="Timer" type="Timer" parent="."]

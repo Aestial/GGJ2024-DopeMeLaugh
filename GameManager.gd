@@ -1,6 +1,9 @@
 extends Node
 
+@export var credits_music_stream: AudioStream
 @export var game_music_stream: AudioStream
+@export var menu_music_stream: AudioStream
+
 @export var min_spawn_time = 3.0
 @export var max_spawn_time = 10.0
 @export var num_slots = 4
@@ -49,10 +52,14 @@ func _on_start_button_pressed():
 	_set_timer(3)
 	
 func _on_credits_button_pressed():
+	audio.stream = credits_music_stream
+	audio.play()
 	start_screen.visible = false
 	credits_screen.visible = true
 	
 func _on_back_button_pressed():
+	audio.stream = menu_music_stream
+	audio.play()
 	start_screen.visible = true
 	credits_screen.visible = false
 
