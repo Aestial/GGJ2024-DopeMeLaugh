@@ -3,7 +3,7 @@ extends Panel
 @export var drug_names: Array[String]
 @export var key_sprites: Array[Texture2D]
 
-var order_scene = load("res://scenes/Order.tscn")
+var order_scene = load("res://scenes/Drug.tscn")
 var type_index = {"S":0, "D":1, "F":2, "G":3}
 
 func print(rx):

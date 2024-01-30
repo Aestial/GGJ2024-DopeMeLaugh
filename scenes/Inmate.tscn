@@ -1,0 +1,198 @@
+[gd_scene load_steps=33 format=3 uid="uid://war8jbxuvlta"]
+
+[ext_resource type="Script" path="res://scenes/Inmate.gd" id="1_6kei2"]
+[ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/characters/character3.png" id="2_bk4u0"]
+[ext_resource type="Texture2D" uid="uid://pr7ongox1m51" path="res://sprites/characters/character1.png" id="3_28f68"]
+[ext_resource type="Texture2D" uid="uid://drnp7h3q8nnwf" path="res://sprites/characters/character4.png" id="4_a06u8"]
+[ext_resource type="Texture2D" uid="uid://05clh0xxdsu5" path="res://sprites/characters/character2.png" id="5_i64uu"]
+[ext_resource type="Texture2D" uid="uid://83sd0a56my3a" path="res://sprites/characters/character0.png" id="6_s0evf"]
+[ext_resource type="AudioStream" uid="uid://ddcxdger2mcpu" path="res://sounds/577972__boxwell__comical-scream-woman.wav" id="7_jewq2"]
+[ext_resource type="Script" path="res://scenes/Container.gd" id="8_smqb1"]
+[ext_resource type="Texture2D" uid="uid://dxu2p76nb5bj4" path="res://sprites/container.png" id="9_wscw3"]
+[ext_resource type="Texture2D" uid="uid://p70q8bq870j4" path="res://sprites/container_open.png" id="10_2ycos"]
+[ext_resource type="Texture2D" uid="uid://bp7rdbg7g5vut" path="res://sprites/pills/pill1.png" id="11_5lu1e"]
+[ext_resource type="Texture2D" uid="uid://c0i8812ypst1" path="res://sprites/pills/pill2.png" id="12_q7gxc"]
+[ext_resource type="Texture2D" uid="uid://cxiyr67b5twc" path="res://sprites/pills/pill3.png" id="13_614lm"]
+[ext_resource type="Texture2D" uid="uid://d2fy4rdmjttfg" path="res://sprites/pills/pill4.png" id="14_jwk83"]
+[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="15_oqrjy"]
+[ext_resource type="Script" path="res://scenes/Score.gd" id="16_dvmxl"]
+[ext_resource type="Texture2D" uid="uid://ux2mrbtobukt" path="res://sprites/faces/face0.png" id="17_pvv06"]
+[ext_resource type="Texture2D" uid="uid://chouutsjq5wjd" path="res://sprites/faces/face1.png" id="18_eiudc"]
+[ext_resource type="Texture2D" uid="uid://cvsa6fn2n6mom" path="res://sprites/faces/face2.png" id="19_7i58e"]
+[ext_resource type="Texture2D" uid="uid://cw6dgurtdefn3" path="res://sprites/faces/face3.png" id="20_pl8ln"]
+[ext_resource type="AudioStream" uid="uid://pflyxtay7mai" path="res://sounds/241230__reitanna__pinkie-pie-laugh.wav" id="21_a8fd4"]
+[ext_resource type="AudioStream" uid="uid://bwj40fjnamouq" path="res://sounds/344064__reitanna__dumby-laugh.wav" id="22_ujr23"]
+[ext_resource type="AudioStream" uid="uid://hcsilb0dabd8" path="res://sounds/girllaugh.mp3" id="23_mio36"]
+[ext_resource type="AudioStream" uid="uid://ca7avm0643xso" path="res://sounds/440575__scicofilmscom__silly-male-laugh-hehehe-lol.mp3" id="24_53eax"]
+[ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="25_ibw4a"]
+[ext_resource type="Script" path="res://scenes/Prescription.gd" id="26_tohyh"]
+[ext_resource type="Texture2D" uid="uid://den3w5axyinr4" path="res://sprites/keyboard/Key_S.png" id="27_a7umo"]
+[ext_resource type="Texture2D" uid="uid://tli2j5poy4v3" path="res://sprites/keyboard/Key_D.png" id="28_vomel"]
+[ext_resource type="Texture2D" uid="uid://bf0hqa6m3iiaa" path="res://sprites/keyboard/Key_F.png" id="29_5s21k"]
+[ext_resource type="Texture2D" uid="uid://f831fu47a5vg" path="res://sprites/keyboard/Key_G.png" id="30_meljs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_628sq"]
+load_path = "res://.godot/imported/container_open.png-d26ee278c21ec127bad776b8ce339cba.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1gpv"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 10
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 5
+
+[node name="Inmate" type="Node"]
+script = ExtResource("1_6kei2")
+max_wait_time = 18.0
+character_origin = Vector2(300, 360)
+character_offset = Vector2(150, 0)
+character_sprites = Array[Texture2D]([ExtResource("2_bk4u0"), ExtResource("3_28f68"), ExtResource("4_a06u8"), ExtResource("5_i64uu"), ExtResource("6_s0evf")])
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jewq2")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Character" type="Sprite2D" parent="Node2D"]
+z_index = -2
+z_as_relative = false
+position = Vector2(320, 360)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_s0evf")
+
+[node name="Container" type="Sprite2D" parent="Node2D"]
+z_index = 1
+z_as_relative = false
+position = Vector2(760, 337)
+texture = SubResource("CompressedTexture2D_628sq")
+script = ExtResource("8_smqb1")
+closed_container_sprite = ExtResource("9_wscw3")
+open_container_sprite = ExtResource("10_2ycos")
+pill_textures = Array[Texture]([ExtResource("11_5lu1e"), ExtResource("12_q7gxc"), ExtResource("13_614lm"), ExtResource("14_jwk83")])
+
+[node name="PillStart" type="Sprite2D" parent="Node2D/Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(-90, 160)
+texture = ExtResource("11_5lu1e")
+
+[node name="PillRowEnd" type="Sprite2D" parent="Node2D/Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(110, 160)
+texture = ExtResource("12_q7gxc")
+
+[node name="PillColumnStart" type="Sprite2D" parent="Node2D/Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(-90, -40)
+texture = ExtResource("13_614lm")
+
+[node name="PillEnd" type="Sprite2D" parent="Node2D/Container"]
+visible = false
+show_behind_parent = true
+position = Vector2(110, -40)
+texture = ExtResource("14_jwk83")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Control" parent="Control"]
+anchors_preset = 0
+anchor_left = 0.819444
+anchor_top = 0.126543
+anchor_right = 0.993056
+anchor_bottom = 0.435185
+theme = ExtResource("15_oqrjy")
+script = ExtResource("16_dvmxl")
+faces = Array[Texture]([ExtResource("17_pvv06"), ExtResource("18_eiudc"), ExtResource("19_7i58e"), ExtResource("20_pl8ln")])
+laughs = Array[AudioStream]([ExtResource("21_a8fd4"), ExtResource("22_ujr23"), ExtResource("23_mio36"), ExtResource("24_53eax")])
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/Score"]
+
+[node name="Label" type="Label" parent="Control/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.715
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: A"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.81
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_pvv06")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 80.0
+theme = ExtResource("25_ibw4a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1gpv")
+
+[node name="ARContainer" type="AspectRatioContainer" parent="Control/Slot"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 80.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Slot/ARContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 69
+text = "N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prescription" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.242188
+anchor_top = 0.299383
+anchor_right = 0.519965
+anchor_bottom = 0.824075
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 0.999756
+offset_bottom = 15.9996
+theme = ExtResource("15_oqrjy")
+script = ExtResource("26_tohyh")
+drug_names = Array[String](["Sanax", "Dorphine", "Falium", "Gothadone"])
+key_sprites = Array[Texture2D]([ExtResource("27_a7umo"), ExtResource("28_vomel"), ExtResource("29_5s21k"), ExtResource("30_meljs")])
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Prescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_right = -20.0002
+offset_bottom = -0.000427246
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_wait_timer_timeout"]

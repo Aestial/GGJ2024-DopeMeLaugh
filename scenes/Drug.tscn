@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://sss70cffl2os"]
 
-[ext_resource type="Texture2D" uid="uid://bf0hqa6m3iiaa" path="res://sprites/keyboard/Key_F.png" id="1_7jwtu"]
-[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="1_qnn7f"]
-[ext_resource type="Script" path="res://scenes/Order.gd" id="1_qwdl8"]
+[ext_resource type="Theme" uid="uid://b45eh8qt6frxm" path="res://themes/ScriptTheme.tres" id="1_piing"]
+[ext_resource type="Script" path="res://scenes/Drug.gd" id="2_ql7oa"]
+[ext_resource type="Texture2D" uid="uid://bf0hqa6m3iiaa" path="res://sprites/keyboard/Key_F.png" id="3_dnjaj"]
 
-[node name="Order" type="Control"]
+[node name="Drug" type="Control"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 3
 anchors_preset = 0
-theme = ExtResource("1_qnn7f")
-script = ExtResource("1_qwdl8")
+theme = ExtResource("1_piing")
+script = ExtResource("2_ql7oa")
 metadata/_edit_use_anchors_ = true
 
 [node name="Text" type="Label" parent="."]
@@ -34,7 +34,7 @@ offset_right = 3.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7jwtu")
+texture = ExtResource("3_dnjaj")
 expand_mode = 5
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true

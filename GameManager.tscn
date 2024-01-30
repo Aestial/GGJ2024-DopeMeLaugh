@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cxw1ubu0754eo"]
+[gd_scene load_steps=23 format=3 uid="uid://cxw1ubu0754eo"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_c2qwo"]
 [ext_resource type="Theme" uid="uid://c0rx5pkmn4v4y" path="res://themes/MainTheme.tres" id="2_wxehv"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bf7xmo8tb3etp" path="res://sounds/68212__zebraphone__loop5.mp3" id="10_7nnyv"]
 [ext_resource type="AudioStream" uid="uid://cncooenk8tgic" path="res://sounds/41021__hello_flowers__if-you-see-kat120bpm.wav" id="10_cdsa3"]
 [ext_resource type="Texture2D" uid="uid://lv87x46afso7" path="res://sprites/tr_logo.png" id="13_vd0eb"]
+[ext_resource type="Texture2D" uid="uid://dnqyvhrobqmvn" path="res://sprites/counter.png" id="15_mkban"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_82lp1"]
 device = -1
@@ -41,8 +42,7 @@ events = [SubResource("InputEventKey_khkfd")]
 [node name="GameManager" type="Node"]
 script = ExtResource("1_c2qwo")
 game_music_stream = ExtResource("10_7nnyv")
-min_spawn_time = 4
-max_spawn_time = 14
+max_spawn_time = 11.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -348,36 +348,6 @@ shortcut = SubResource("Shortcut_365m6")
 text = "Credits"
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Background" type="Sprite2D" parent="Node2D"]
-modulate = Color(1, 1, 1, 0.352941)
-z_index = -1
-texture = ExtResource("3_yfber")
-centered = false
-
-[node name="ScoreScreen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_ofllb")
-
-[node name="TitleLabel" type="Label" parent="ScoreScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.791667
-anchor_right = 1.0
-anchor_bottom = 0.104938
-grow_horizontal = 0
-theme = ExtResource("3_ofllb")
-text = "Score: XXXX"
-vertical_alignment = 1
-justification_flags = 131
-metadata/_edit_use_anchors_ = true
-
 [node name="CreditsScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -412,6 +382,42 @@ grow_horizontal = 2
 grow_vertical = 0
 shortcut = SubResource("Shortcut_o8cbr")
 text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.329412)
+z_index = -10
+z_as_relative = false
+texture = ExtResource("3_yfber")
+centered = false
+
+[node name="counter" type="Sprite2D" parent="Node2D"]
+z_index = -1
+texture = ExtResource("15_mkban")
+centered = false
+
+[node name="ScoreScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ofllb")
+
+[node name="TitleLabel" type="Label" parent="ScoreScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.791667
+anchor_right = 1.0
+anchor_bottom = 0.104938
+grow_horizontal = 0
+theme = ExtResource("3_ofllb")
+text = "Score: XXXX"
+vertical_alignment = 1
+justification_flags = 131
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

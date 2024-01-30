@@ -1,6 +1,7 @@
 extends Node
 
 signal destroyed
+signal lost
 signal selected
 signal solved
 
@@ -9,12 +10,14 @@ signal solved
 @export var max_pill_count = 6
 @export var min_wait_time = 3.0
 @export var max_wait_time = 10.0
+@export var lost_score = -5
 # UI parameters
 @export var min_slot_width = 80
 @export var max_slot_width = 250
 @export var panel_speed = 10
 # Sprites parameters
-@export var character_origin = Vector2(320, 280)
+# TODO Make this private and read from $Character position at ready
+@export var character_origin = Vector2(320, 360)
 @export var character_offset = Vector2(120, 0)
 @export var character_sprites: Array[Texture2D]
 
@@ -26,7 +29,7 @@ var solution = {"S":0, "D":0, "F":0, "G":0}
 var slot = -1
 var slot_width
 var timer
-var waitTime
+var waitTime: float
 
 func set_slot(_slot):
 	slot = _slot
@@ -65,7 +68,6 @@ func _input(event):
 		if is_selected:
 			if code == KEY_ENTER:
 				var distance = _get_recipe_distance()
-				print("Recipe distance: " + str(distance))
 				var score = 10 - distance
 				container.close()
 				$Control/Score.set_score(score)
@@ -90,6 +92,7 @@ func _on_wait_timer_timeout():
 	$Node2D/Character.modulate = Color(0.7, 0.7, 0.7, 0.7)
 	_show_details(is_selected)
 	timer.stop()
+	emit_signal("lost", slot, lost_score)
 	await get_tree().create_timer(1.5).timeout
 	queue_free()
 

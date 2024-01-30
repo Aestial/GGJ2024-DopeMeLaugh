@@ -1,5 +1,4 @@
 extends Control
-
 var key
 var text
 
