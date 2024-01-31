@@ -1,4 +1,4 @@
-extends Panel
+extends TextureRect
 
 @export var drug_names: Array[String]
 @export var key_sprites: Array[Texture2D]
