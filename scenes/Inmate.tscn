@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://war8jbxuvlta"]
+[gd_scene load_steps=34 format=3 uid="uid://war8jbxuvlta"]
 
 [ext_resource type="Script" path="res://scenes/Inmate.gd" id="1_6kei2"]
 [ext_resource type="Texture2D" uid="uid://ragt6nvr4as" path="res://sprites/characters/character3.png" id="2_bk4u0"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://hcsilb0dabd8" path="res://sounds/girllaugh.mp3" id="23_mio36"]
 [ext_resource type="AudioStream" uid="uid://ca7avm0643xso" path="res://sounds/440575__scicofilmscom__silly-male-laugh-hehehe-lol.mp3" id="24_53eax"]
 [ext_resource type="Theme" uid="uid://dvyjsa2wncv23" path="res://themes/UITheme.tres" id="25_ibw4a"]
+[ext_resource type="Texture2D" uid="uid://bol83061apqmn" path="res://sprites/prescription.png" id="26_c4md3"]
 [ext_resource type="Script" path="res://scenes/Prescription.gd" id="26_tohyh"]
 [ext_resource type="Texture2D" uid="uid://den3w5axyinr4" path="res://sprites/keyboard/Key_S.png" id="27_a7umo"]
 [ext_resource type="Texture2D" uid="uid://tli2j5poy4v3" path="res://sprites/keyboard/Key_D.png" id="28_vomel"]
@@ -164,7 +165,8 @@ text = "N"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Prescription" type="Panel" parent="Control"]
+[node name="Prescription" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.972549)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.242188
@@ -176,6 +178,7 @@ offset_top = -4.0
 offset_right = 0.999756
 offset_bottom = 15.9996
 theme = ExtResource("15_oqrjy")
+texture = ExtResource("26_c4md3")
 script = ExtResource("26_tohyh")
 drug_names = Array[String](["Sanax", "Dorphine", "Falium", "Gothadone"])
 key_sprites = Array[Texture2D]([ExtResource("27_a7umo"), ExtResource("28_vomel"), ExtResource("29_5s21k"), ExtResource("30_meljs")])

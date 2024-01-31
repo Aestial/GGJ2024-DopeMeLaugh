@@ -51,8 +51,7 @@ func _ready():
 	timer.start(waitTime)
 	
 func _input(event):
-	## Dismiss input when parent is busy with another customer
-	if not is_selected and get_parent().is_busy:
+	if is_solved or (not is_selected and get_parent().is_busy):
 		return
 	## Get key events
 	if event is InputEventKey and event.pressed:
@@ -63,6 +62,7 @@ func _input(event):
 			return
 		if is_selected:
 			if code == KEY_ENTER:
+				is_solved = true
 				var distance = _get_recipe_distance()
 				var score = 10 - distance
 				container.close()
@@ -84,6 +84,7 @@ func _process(_delta):
 	$Control/Slot.size.x = lerp(min_slot_width, max_slot_width, percentage)
 
 func _on_wait_timer_timeout():
+	is_solved = true
 	$AudioStreamPlayer.play()
 	$Node2D/Character.modulate = Color(0.7, 0.7, 0.7, 0.7)
 	_show_details(is_selected)
@@ -96,8 +97,8 @@ func _on_tree_exited():
 	emit_signal("destroyed", slot)
 
 func _select(is_true):
-	container.open()
 	is_selected = is_true
+	container.open()
 	timer.stop()
 	emit_signal("selected", slot)
 	_show_details(is_selected)
